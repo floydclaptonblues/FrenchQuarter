@@ -1,16 +1,70 @@
 # French Quarter Walkable World
 
-A GitHub Pages ready Three.js walking world built from Ryan's older inline-world experiments, but split into real repo files so it can grow without turning into one huge laggy HTML block.
+A repaired GitHub Pages-ready Three.js walking world with the Cathedral Square / St. Louis Cathedral-style landmark build intact.
+
+This repo was uploaded with its JavaScript, CSS, and texture files flattened at the repository root. The launch paths have now been repaired so GitHub Pages and the local Windows launcher both use the root-level files correctly.
 
 ## What is included
 
-- `index.html` with a clean import map for Three.js.
-- `styles/world.css` with the retro Windows 95 HUD and mobile controls.
-- `src/core/Engine.js` for rendering, first-person movement, collision, interaction, quality toggling, and metrics.
-- `src/core/Input.js` for desktop pointer-lock controls plus mobile joystick and touch-look.
-- `src/core/TextureFactory.js` for uploaded textures and procedural textures.
-- `src/worlds/frenchQuarterWorld.js` for the actual walkable French Quarter scene.
-- `assets/textures/` containing the uploaded floor, wall, sky, carpet, rug, brick, and wood textures.
+- `index.html` — the GitHub Pages entry point.
+- `world.css` — retro Windows 95 HUD, boot panel, toolbar, and mobile controls.
+- `main.js` — starts the world and connects controls.
+- `Engine.js` — rendering, movement, collision, interaction, quality toggling, and metrics.
+- `Input.js` — desktop pointer-lock controls plus mobile joystick and touch-look.
+- `TextureFactory.js` — loads root-level uploaded textures and creates procedural textures.
+- `frenchQuarterWorld.js` — the walkable French Quarter scene with Cathedral Square, a cathedral facade, streets, gas lamps, balconies, shops, rugs, and streetcar motion.
+- `RUN-WINDOWS.bat` — double-click Windows launcher.
+- Root-level texture files such as `paving_roughness.jpg`, `night_sky.gif`, `pixel_brick.gif`, `pixel_wood.gif`, `theater_carpet.webp`, `mardi_gras_street.gif`, `rug_medallion_gold.gif`, and `rug_medallion_red.gif`.
+
+## Run on GitHub Pages
+
+Open the repository's GitHub Pages URL. If you just changed the repo, hard-refresh the browser with:
+
+```text
+Ctrl + F5
+```
+
+The boot panel should say:
+
+```text
+MEWTWO WORLD BUILDER // CATHEDRAL BUILD REPAIRED
+```
+
+## Run locally on Windows
+
+Double-click:
+
+```text
+RUN-WINDOWS.bat
+```
+
+That starts a small local server and opens:
+
+```text
+http://localhost:8000
+```
+
+Keep the command window open while using the world.
+
+## Manual local testing
+
+If you prefer command line:
+
+```bash
+py -m http.server 8000
+```
+
+or:
+
+```bash
+python -m http.server 8000
+```
+
+Then open:
+
+```text
+http://localhost:8000
+```
 
 ## Controls
 
@@ -29,42 +83,3 @@ Mobile:
 - Right side drag: look
 - ACTION: inspect nearby objects
 - Fullscreen button: enter fullscreen
-
-## Local testing
-
-Because this uses JavaScript modules, open it through a small local server rather than double-clicking the file.
-
-```bash
-python -m http.server 8000
-```
-
-Then open:
-
-```text
-http://localhost:8000
-```
-
-## Publish to GitHub Pages
-
-From inside the folder:
-
-```bash
-git init
-git add .
-git commit -m "Add French Quarter walkable world"
-git branch -M main
-git remote add origin https://github.com/floydclaptonblues/ryanhall-horrorland-player.git
-git push -u origin main
-```
-
-Then in GitHub:
-
-1. Open the repository settings.
-2. Go to Pages.
-3. Deploy from branch.
-4. Select `main` and `/root`.
-5. Save.
-
-## Next expansion pass
-
-The next version should add a `src/worlds/registry.js` file so multiple worlds can be selected from the boot panel. New worlds can then be added as separate modules instead of copying and editing the whole app.
