@@ -1,7 +1,7 @@
 import * as THREE from 'three';
 
 export class TextureFactory {
-  constructor(basePath = 'assets/textures/') {
+  constructor(basePath = '') {
     this.loader = new THREE.TextureLoader();
     this.basePath = basePath;
     this.cache = new Map();
