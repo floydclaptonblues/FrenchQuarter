@@ -1,5 +1,5 @@
-import { Engine } from './core/Engine.js';
-import { frenchQuarterWorld } from './worlds/frenchQuarterWorld.js';
+import { Engine } from './Engine.js';
+import { frenchQuarterWorld } from './frenchQuarterWorld.js';
 
 const canvas = document.getElementById('world-canvas');
 const boot = document.getElementById('boot-panel');
